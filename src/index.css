@@ -5,80 +5,81 @@ body {
 }
 
 .App {
+  margin: auto;
   text-align: left;
   border-style: solid;
   border-width: 1px;
   border-color: #41719c;
   background-color: #5b9bd5;
-  height: 350px;
-  width: 600px;
-}
-
-.komponentA {
+  height: 290px;
+  width: 450px;
 }
 
 .komponentB {
+  position: relative;
+  top: -60px;
+  left: 45px;
   border-style: solid;
   border-width: 1px;
-  border-color: #ffc000;
-  background-color: #bc8c00;
+  border-color: #bc8c00;
+  background-color: #ffc000;
   width: 80%;
   text-align: left;
 }
 
 .komponentC {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #507e32;
+  position: relative;
+  top: -45px;
+  left: 275px;
+  border: 1px solid #507e32;
   background-color: #70ad47;
   width: 150px;
-  padding: 5px;
-  margin: 10px;
 }
 
 #tekstboksA {
-  height: 50px;
-  width: 70%;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #bc8c00;
   position: relative;
-  top: 250px;
+  top: 170px;
+  left: 45px;
+  height: 60px;
+  width: 80%;
+  border: 1px solid #bc8c00;
 }
 
 #tekstboksB {
+  vertical-align: top;
   margin-left: 5px;
+  margin-bottom: 5px;
   height: 40px;
   width: 80%;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #bc8c00;
+  border: 1px solid #bc8c00;
 }
 
 #divBoks {
+  position: relative;
+  top: -15px;
+  text-align: center;
   color: #FFFFFF;
-  height: 30px;
-  width: 45px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #507e32;
+  height: 19px;
+  width: 39px;
+  padding: 3px;
+  border: 1px solid #507e32;
   background-color: #7030a0;
   float: right;
+  margin-right: 5px;
+  margin-bottom: px;
 }
 
 #okBtn {
+  width: 50px;
   margin: 5px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #507e32;
+  border: 1px solid #507e32;
   background-color: #C55A11;
 }
 
 #avbrytBtn {
+  width: 50px;
   margin: 5px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #507e32;
+  border: 1px solid #507e32;
   background-color: #767171;
 }
 
@@ -87,3 +88,4 @@ p {
   margin-left: 5px;
   margin-top: 5px;
 }
+
