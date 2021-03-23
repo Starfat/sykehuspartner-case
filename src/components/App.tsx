@@ -6,9 +6,9 @@ i dette komponentet nå brukeren trykker på "OK" i komponent C
 */ 
 
 const KomponentA = () =>
-  <section>
+  <section className="komponentA">
     <p>Komponent A (hovedkomponent)</p>
-    <input type="text" placeholder="Tekstboks" />
+    <input id="tekstboksA" type="text" placeholder="Tekstboks" />
   </section>
   ;
 
@@ -22,10 +22,10 @@ Komponent B
 */ 
 
 const KomponentB = () =>
-  <section>
+  <section className="komponentB">
     <p>Komponent B</p>
-    <input type="text" placeholder="Tekstboks" />
-    <div>DIV</div>
+    <input id="tekstboksB" type="text" placeholder="Tekstboks" />
+    <div id="divBoks">DIV</div>
   </section>
   ;
 
@@ -37,10 +37,10 @@ Komponent C
    fjernes
 */ 
 const KomponentC = () =>
-  <section>
+  <section className="komponentC">
     <p>Komponent C</p>
-    <button >OK</button>
-    <button >Avbryt</button>
+    <button id="okBtn">OK</button>
+    <button id="avbrytBtn">Avbryt</button>
   </section>
   ;
 

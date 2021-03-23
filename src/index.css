@@ -1,9 +1,89 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-small;
 }
 
 .App {
-  text-align: center;
+  text-align: left;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #41719c;
+  background-color: #5b9bd5;
+  height: 350px;
+  width: 600px;
 }
 
+.komponentA {
+}
+
+.komponentB {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffc000;
+  background-color: #bc8c00;
+  width: 80%;
+  text-align: left;
+}
+
+.komponentC {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #507e32;
+  background-color: #70ad47;
+  width: 150px;
+  padding: 5px;
+  margin: 10px;
+}
+
+#tekstboksA {
+  height: 50px;
+  width: 70%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #bc8c00;
+  position: relative;
+  top: 250px;
+}
+
+#tekstboksB {
+  margin-left: 5px;
+  height: 40px;
+  width: 80%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #bc8c00;
+}
+
+#divBoks {
+  color: #FFFFFF;
+  height: 30px;
+  width: 45px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #507e32;
+  background-color: #7030a0;
+  float: right;
+}
+
+#okBtn {
+  margin: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #507e32;
+  background-color: #C55A11;
+}
+
+#avbrytBtn {
+  margin: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #507e32;
+  background-color: #767171;
+}
+
+p {
+  color: #FFFFFF;
+  margin-left: 5px;
+  margin-top: 5px;
+}
