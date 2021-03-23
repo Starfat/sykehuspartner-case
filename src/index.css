@@ -18,7 +18,7 @@ body {
 .komponentB {
   position: relative;
   top: -60px;
-  left: 45px;
+  left: 35px;
   border-style: solid;
   border-width: 1px;
   border-color: #bc8c00;
@@ -30,7 +30,7 @@ body {
 .komponentC {
   position: relative;
   top: -45px;
-  left: 275px;
+  left: 265px;
   border: 1px solid #507e32;
   background-color: #70ad47;
   width: 150px;
@@ -39,7 +39,7 @@ body {
 #tekstboksA {
   position: relative;
   top: 170px;
-  left: 45px;
+  left: 35px;
   height: 60px;
   width: 80%;
   border: 1px solid #bc8c00;
