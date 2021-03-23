@@ -1,9 +1,91 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-small;
 }
 
 .App {
+  margin: auto;
+  text-align: left;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #41719c;
+  background-color: #5b9bd5;
+  height: 290px;
+  width: 450px;
+}
+
+.komponentB {
+  position: relative;
+  top: -60px;
+  left: 35px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #bc8c00;
+  background-color: #ffc000;
+  width: 80%;
+  text-align: left;
+}
+
+.komponentC {
+  position: relative;
+  top: -45px;
+  left: 265px;
+  border: 1px solid #507e32;
+  background-color: #70ad47;
+  width: 150px;
+}
+
+#tekstboksA {
+  position: relative;
+  top: 170px;
+  left: 35px;
+  height: 60px;
+  width: 80%;
+  border: 1px solid #bc8c00;
+}
+
+#tekstboksB {
+  vertical-align: top;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  height: 40px;
+  width: 80%;
+  border: 1px solid #bc8c00;
+}
+
+#divBoks {
+  position: relative;
+  top: -15px;
   text-align: center;
+  color: #FFFFFF;
+  height: 19px;
+  width: 39px;
+  padding: 3px;
+  border: 1px solid #507e32;
+  background-color: #7030a0;
+  float: right;
+  margin-right: 5px;
+  margin-bottom: px;
+}
+
+#okBtn {
+  width: 50px;
+  margin: 5px;
+  border: 1px solid #507e32;
+  background-color: #C55A11;
+}
+
+#avbrytBtn {
+  width: 50px;
+  margin: 5px;
+  border: 1px solid #507e32;
+  background-color: #767171;
+}
+
+p {
+  color: #FFFFFF;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
