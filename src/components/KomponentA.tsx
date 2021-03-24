@@ -1,6 +1,30 @@
 import { useState } from 'react';
 
 /* 
+Komponent A (hovedkomponent)
+Tekst fra tekstboksen i komponent B skal vises i tekstboksen 
+i dette komponentet nå brukeren trykker på "OK" i komponent C
+*/
+
+const KomponentA = () => {
+
+  return (
+    <div className="App">
+      <section className="komponentA">
+        <p>Komponent A (hovedkomponent)</p>
+        <input 
+          id="tekstboksA" 
+          type="text" 
+          placeholder="Tekstboks" 
+        />
+      </section>
+      <KomponentB />
+      <KomponentC />
+    </div>
+  )
+}
+
+/* 
 Komponent B
 1. Tekst som tastes inn i tekstboksen i dette komponentet skal 
    vises i tekstboksen i komponent A når brukeren trykker på "OK" i komponent C
@@ -58,31 +82,23 @@ Komponent C
 2. Når du trykker «Avbryt» så skal teksten i tekstboksen i komponent A 
    fjernes
 */
-const KomponentC = () =>
+const KomponentC = () => {
 
-  <section className="komponentC">
-    <p>Komponent C</p>
-    <button id="okBtn">OK</button>
-    <button id="avbrytBtn">Avbryt</button>
-  </section>
-  ;
-
-/* 
-Komponent A (hovedkomponent)
-Tekst fra tekstboksen i komponent B skal vises i tekstboksen 
-i dette komponentet nå brukeren trykker på "OK" i komponent C
-*/
-
-const KomponentA = () => 
-  <div className="App">
-    <section className="komponentA">
-      <p>Komponent A (hovedkomponent)</p>
-      <input id="tekstboksA" type="text" placeholder="Tekstboks" />
+  return (
+    <section className="komponentC">
+      <p>Komponent C</p>
+      <button 
+        id="okBtn"
+      >
+        OK
+      </button>
+      <button 
+        id="avbrytBtn"
+      >
+        Avbryt
+      </button>
     </section>
-;
-    <KomponentB />
-    <KomponentC />
-  </div>
-  ;
+  )
+}
 
 export default KomponentA;
