@@ -1,19 +1,6 @@
 import { useState } from 'react';
 
 /* 
-Komponent A (hovedkomponent)
-Tekst fra tekstboksen i komponent B skal vises i tekstboksen 
-i dette komponentet nå brukeren trykker på "OK" i komponent C
-*/
-
-const KomponentA = () =>
-  <section className="komponentA">
-    <p>Komponent A (hovedkomponent)</p>
-    <input id="tekstboksA" type="text" placeholder="Tekstboks" />
-  </section>
-  ;
-
-/* 
 Komponent B
 1. Tekst som tastes inn i tekstboksen i dette komponentet skal 
    vises i tekstboksen i komponent A når brukeren trykker på "OK" i komponent C
@@ -23,11 +10,11 @@ Komponent B
 */
 
 export type KomponentBProps = {
-  cssElement1? : string// holder navnet på det ene csselemenet for div
-  cssElement2? : string // holder navnet på det ene csselemenet for div
+  cssElement1?: string// holder navnet på det ene csselemenet for div
+  cssElement2?: string // holder navnet på det ene csselemenet for div
 };
 
-const KomponentB = ({cssElement1, cssElement2} : KomponentBProps) => {
+const KomponentB = ({ cssElement1, cssElement2 }: KomponentBProps) => {
 
   cssElement1 = 'divBoks';
   cssElement2 = 'divBoksEndret';
@@ -36,14 +23,14 @@ const KomponentB = ({cssElement1, cssElement2} : KomponentBProps) => {
 
   // Endrer divBakgrunn fra cssElemen1 til cssElement2 og omvendt 
   function endreBakgrunn() {
-    divBakgrunn === cssElement1 ? 
-    setDivBakgrunn(cssElement2 as string) : 
-    setDivBakgrunn(cssElement1 as string)
+    divBakgrunn === cssElement1 ?
+      setDivBakgrunn(cssElement2 as string) :
+      setDivBakgrunn(cssElement1 as string)
     return divBakgrunn;
   };
 
   return (
-    <section 
+    <section
       className="komponentB"
     >
       <p>
@@ -80,13 +67,22 @@ const KomponentC = () =>
   </section>
   ;
 
-const App = () =>
+/* 
+Komponent A (hovedkomponent)
+Tekst fra tekstboksen i komponent B skal vises i tekstboksen 
+i dette komponentet nå brukeren trykker på "OK" i komponent C
+*/
 
+const KomponentA = () => 
   <div className="App">
-    <KomponentA />
+    <section className="komponentA">
+      <p>Komponent A (hovedkomponent)</p>
+      <input id="tekstboksA" type="text" placeholder="Tekstboks" />
+    </section>
+;
     <KomponentB />
     <KomponentC />
   </div>
   ;
 
-export default App;
+export default KomponentA;
