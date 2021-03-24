@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Dispatch, SetStateAction } from "react";
 
 /* 
 Komponent A (hovedkomponent)
@@ -6,20 +7,29 @@ Tekst fra tekstboksen i komponent B skal vises i tekstboksen
 i dette komponentet nå brukeren trykker på "OK" i komponent C
 */
 
-const KomponentA = () => {
+type KomponentAProps = {
+  tekst?: string// holder navnet på det ene csselemenet for div
+
+};
+export const KomponentA = ({ tekst }: KomponentAProps) => {
+
+  tekst = 'Livet Leker';
+  const [tekstboksVerdi, setTekstboksVerdi] = useState(tekst);
+  setTekstboksVerdi('test');
 
   return (
     <div className="App">
       <section className="komponentA">
         <p>Komponent A (hovedkomponent)</p>
-        <input 
-          id="tekstboksA" 
-          type="text" 
-          placeholder="Tekstboks" 
+        <input
+          id="tekstboksA"
+          type="text"
+          placeholder="Tekstboks"
+          value={tekstboksVerdi}
         />
       </section>
-      <KomponentB />
-      <KomponentC />
+      <KomponentB tekstboksVerdi={tekstboksVerdi} />
+      <KomponentC setTekstboksVerdi={setTekstboksVerdi} />
     </div>
   )
 }
@@ -33,12 +43,13 @@ Komponent B
   - Fargen endres ved at klassen som settes på div’en endres avhengig av state
 */
 
-export type KomponentBProps = {
+type KomponentBProps = {
   cssElement1?: string// holder navnet på det ene csselemenet for div
   cssElement2?: string // holder navnet på det ene csselemenet for div
+  tekstboksVerdi?: string // holder navnet på det ene csselemenet for div
 };
 
-const KomponentB = ({ cssElement1, cssElement2 }: KomponentBProps) => {
+const KomponentB = ({ cssElement1, cssElement2, tekstboksVerdi }: KomponentBProps) => {
 
   cssElement1 = 'divBoks';
   cssElement2 = 'divBoksEndret';
@@ -64,6 +75,7 @@ const KomponentB = ({ cssElement1, cssElement2 }: KomponentBProps) => {
         id="tekstboksB"
         type="text"
         placeholder="Tekstboks"
+        value={tekstboksVerdi}
       />
       <div
         className={divBakgrunn}
@@ -82,17 +94,23 @@ Komponent C
 2. Når du trykker «Avbryt» så skal teksten i tekstboksen i komponent A 
    fjernes
 */
-const KomponentC = () => {
+
+type KomponentCProps = {
+  setTekstboksVerdi?: Dispatch<SetStateAction<string>> // holder navnet på det ene csselemenet for div
+  tekst?: string
+};
+
+const KomponentC = ({ setTekstboksVerdi, tekst }: KomponentCProps) => {
 
   return (
     <section className="komponentC">
       <p>Komponent C</p>
-      <button 
-        id="okBtn"
+      <button
+        id="OKBtn"
       >
-        OK
+        Avbryt
       </button>
-      <button 
+      <button
         id="avbrytBtn"
       >
         Avbryt
