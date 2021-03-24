@@ -54,7 +54,7 @@ body {
   border: 1px solid #bc8c00;
 }
 
-#divBoks {
+.divBoks {
   position: relative;
   top: -15px;
   text-align: center;
@@ -69,11 +69,27 @@ body {
   margin-bottom: px;
 }
 
+.divBoksEndret {
+  position: relative;
+  top: -15px;
+  text-align: center;
+  color: #532323;
+  height: 19px;
+  width: 39px;
+  padding: 3px;
+  border: 1px solid #507e32;
+  background-color: #ecdb43;
+  float: right;
+  margin-right: 5px;
+  margin-bottom: px;
+}
+
 #okBtn {
   width: 50px;
   margin: 5px;
   border: 1px solid #507e32;
   background-color: #C55A11;
+  color: #FFFFFF;
 }
 
 #avbrytBtn {
@@ -81,6 +97,7 @@ body {
   margin: 5px;
   border: 1px solid #507e32;
   background-color: #767171;
+  color: #FFFFFF;
 }
 
 p {

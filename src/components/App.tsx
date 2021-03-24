@@ -1,9 +1,10 @@
+import { useState } from 'react';
 
 /* 
 Komponent A (hovedkomponent)
 Tekst fra tekstboksen i komponent B skal vises i tekstboksen 
 i dette komponentet nå brukeren trykker på "OK" i komponent C
-*/ 
+*/
 
 const KomponentA = () =>
   <section className="komponentA">
@@ -19,15 +20,49 @@ Komponent B
 2. Hvis brukeren trykker på div-elementet skal den skifte farge.
   - Fargen som visen skal være internal state for komponent B
   - Fargen endres ved at klassen som settes på div’en endres avhengig av state
-*/ 
+*/
 
-const KomponentB = () =>
-  <section className="komponentB">
-    <p>Komponent B</p>
-    <input id="tekstboksB" type="text" placeholder="Tekstboks" />
-    <div id="divBoks">DIV</div>
-  </section>
-  ;
+export type KomponentBProps = {
+  cssElement1? : string// holder navnet på det ene csselemenet for div
+  cssElement2? : string // holder navnet på det ene csselemenet for div
+};
+
+const KomponentB = ({cssElement1, cssElement2} : KomponentBProps) => {
+
+  cssElement1 = 'divBoks';
+  cssElement2 = 'divBoksEndret';
+
+  const [divBakgrunn, setDivBakgrunn] = useState(cssElement1);
+
+  // Endrer divBakgrunn fra cssElemen1 til cssElement2 og omvendt 
+  function endreBakgrunn() {
+    divBakgrunn === cssElement1 ? 
+    setDivBakgrunn(cssElement2 as string) : 
+    setDivBakgrunn(cssElement1 as string)
+    return divBakgrunn;
+  };
+
+  return (
+    <section 
+      className="komponentB"
+    >
+      <p>
+        Komponent B
+      </p>
+      <input
+        id="tekstboksB"
+        type="text"
+        placeholder="Tekstboks"
+      />
+      <div
+        className={divBakgrunn}
+        onClick={endreBakgrunn}
+      >
+        DIV
+      </div>
+    </section>
+  )
+}
 
 /* 
 Komponent C
@@ -35,8 +70,9 @@ Komponent C
    vises i tekstboksen i komponent A
 2. Når du trykker «Avbryt» så skal teksten i tekstboksen i komponent A 
    fjernes
-*/ 
+*/
 const KomponentC = () =>
+
   <section className="komponentC">
     <p>Komponent C</p>
     <button id="okBtn">OK</button>
@@ -45,6 +81,7 @@ const KomponentC = () =>
   ;
 
 const App = () =>
+
   <div className="App">
     <KomponentA />
     <KomponentB />
