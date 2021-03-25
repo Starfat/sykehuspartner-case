@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Dispatch, SetStateAction } from "react";
 
 /* 
@@ -7,15 +7,10 @@ Tekst fra tekstboksen i komponent B skal vises i tekstboksen
 i dette komponentet nå brukeren trykker på "OK" i komponent C
 */
 
-type KomponentAProps = {
-  tekst?: string// holder navnet på det ene csselemenet for div
+const KomponentA = () => {
 
-};
-export const KomponentA = ({ tekst }: KomponentAProps) => {
-
-  tekst = 'Livet Leker';
-  const [tekstboksVerdi, setTekstboksVerdi] = useState(tekst);
-  setTekstboksVerdi('test');
+  const [tekstboksA, setTekstboksA] = useState('');
+  const [tekstboksB, setTekstboksB] = useState('');
 
   return (
     <div className="App">
@@ -25,11 +20,17 @@ export const KomponentA = ({ tekst }: KomponentAProps) => {
           id="tekstboksA"
           type="text"
           placeholder="Tekstboks"
-          value={tekstboksVerdi}
+          defaultValue={tekstboksA}
         />
       </section>
-      <KomponentB tekstboksVerdi={tekstboksVerdi} />
-      <KomponentC setTekstboksVerdi={setTekstboksVerdi} />
+      <KomponentB
+        tekstboksB={tekstboksB} // gjør state tilgjengelig i KomponentB
+        setTekstboksB={setTekstboksB} // gjør state tilgjengelig i KomponentB
+      />
+      <KomponentC
+        tekstboksB={tekstboksB} // gjør state tilgjengelig i KomponentC
+        setTekstboksA={setTekstboksA} // gjør state tilgjengelig i KomponentC
+      />
     </div>
   )
 }
@@ -37,22 +38,28 @@ export const KomponentA = ({ tekst }: KomponentAProps) => {
 /* 
 Komponent B
 1. Tekst som tastes inn i tekstboksen i dette komponentet skal 
-   vises i tekstboksen i komponent A når brukeren trykker på "OK" i komponent C
+   vises i tekstboksen i komponent A når brukeren trykker på "OK" i KomponentC
 2. Hvis brukeren trykker på div-elementet skal den skifte farge.
-  - Fargen som visen skal være internal state for komponent B
+  - Fargen som visen skal være internal state for KomponentB
   - Fargen endres ved at klassen som settes på div’en endres avhengig av state
 */
 
 type KomponentBProps = {
   cssElement1?: string// holder navnet på det ene csselemenet for div
   cssElement2?: string // holder navnet på det ene csselemenet for div
-  tekstboksVerdi?: string // holder navnet på det ene csselemenet for div
+  tekstboksB?: string // holder navnet på det ene csselemenet for div
+  setTekstboksB: Dispatch<SetStateAction<string>> // UseState fra Komponent A
 };
 
-const KomponentB = ({ cssElement1, cssElement2, tekstboksVerdi }: KomponentBProps) => {
+const KomponentB = ({ cssElement1, cssElement2, tekstboksB, setTekstboksB }: KomponentBProps) => {
 
   cssElement1 = 'divBoks';
   cssElement2 = 'divBoksEndret';
+
+  // Sørger for at verdien i tekstboksen alltid er kontrollert av komponentet 
+  const onChangeTekstboksA = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTekstboksB(e.currentTarget.value);
+  };
 
   const [divBakgrunn, setDivBakgrunn] = useState(cssElement1);
 
@@ -75,11 +82,12 @@ const KomponentB = ({ cssElement1, cssElement2, tekstboksVerdi }: KomponentBProp
         id="tekstboksB"
         type="text"
         placeholder="Tekstboks"
-        value={tekstboksVerdi}
+        defaultValue={tekstboksB}
+        onChange={onChangeTekstboksA}
       />
       <div
         className={divBakgrunn}
-        onClick={endreBakgrunn}
+        onClick={endreBakgrunn} // Kaller på funksjon for å endre bakgrunnsfarge ved onClick
       >
         DIV
       </div>
@@ -96,22 +104,34 @@ Komponent C
 */
 
 type KomponentCProps = {
-  setTekstboksVerdi?: Dispatch<SetStateAction<string>> // holder navnet på det ene csselemenet for div
-  tekst?: string
+  tekstboksB: string
+  setTekstboksA: Dispatch<SetStateAction<string>>
 };
 
-const KomponentC = ({ setTekstboksVerdi, tekst }: KomponentCProps) => {
+const KomponentC = ({ tekstboksB, setTekstboksA }: KomponentCProps) => {
+
+  // Funksjon for å flytte tekst
+  function flyttTekst() {
+    setTekstboksA(tekstboksB);
+  }
+
+  // Funksjon for fjerne tekst
+  function fjernTekst() {
+    setTekstboksA('');
+  }
 
   return (
     <section className="komponentC">
       <p>Komponent C</p>
       <button
-        id="OKBtn"
+        id="okBtn"
+        onClick={flyttTekst} // Kaller på funksjon for å flytte tekst ved onClick
       >
-        Avbryt
+        OK
       </button>
       <button
         id="avbrytBtn"
+        onClick={fjernTekst} // Kaller på funksjon for å fjerne tekst ved onClick
       >
         Avbryt
       </button>
