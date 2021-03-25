@@ -11,7 +11,7 @@ body {
   border-width: 1px;
   border-color: #41719c;
   background-color: #5b9bd5;
-  height: 290px;
+  height: 1500px;
   width: 450px;
 }
 
@@ -28,12 +28,13 @@ body {
 }
 
 .komponentC {
+  text-align: center;
   position: relative;
   top: -45px;
-  left: 265px;
+  left: 35px;
   border: 1px solid #507e32;
   background-color: #70ad47;
-  width: 150px;
+  width: 80%;
 }
 
 #tekstboksA {
@@ -58,7 +59,7 @@ body {
   position: relative;
   top: -15px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   height: 19px;
   width: 39px;
   padding: 3px;
@@ -88,8 +89,8 @@ body {
   width: 50px;
   margin: 5px;
   border: 1px solid #507e32;
-  background-color: #C55A11;
-  color: #FFFFFF;
+  background-color: #c55a11;
+  color: #ffffff;
 }
 
 #avbrytBtn {
@@ -97,12 +98,121 @@ body {
   margin: 5px;
   border: 1px solid #507e32;
   background-color: #767171;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 p {
-  color: #FFFFFF;
+  color: #ffffff;
   margin-left: 5px;
   margin-top: 5px;
 }
 
+@media only screen and (min-width: 1100px) {
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-small;
+  }
+
+  .App {
+    margin: auto;
+    text-align: left;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #41719c;
+    background-color: #5b9bd5;
+    height: 290px;
+    width: 450px;
+  }
+
+  .komponentB {
+    position: relative;
+    top: -60px;
+    left: 35px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #bc8c00;
+    background-color: #ffc000;
+    width: 80%;
+    text-align: left;
+  }
+
+  .komponentC {
+    position: relative;
+    top: -45px;
+    left: 265px;
+    border: 1px solid #507e32;
+    background-color: #70ad47;
+    width: 150px;
+  }
+
+  #tekstboksA {
+    position: relative;
+    top: 170px;
+    left: 35px;
+    height: 60px;
+    width: 80%;
+    border: 1px solid #bc8c00;
+  }
+
+  #tekstboksB {
+    vertical-align: top;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    height: 40px;
+    width: 80%;
+    border: 1px solid #bc8c00;
+  }
+
+  .divBoks {
+    position: relative;
+    top: -15px;
+    text-align: center;
+    color: #ffffff;
+    height: 19px;
+    width: 39px;
+    padding: 3px;
+    border: 1px solid #507e32;
+    background-color: #7030a0;
+    float: right;
+    margin-right: 5px;
+    margin-bottom: px;
+  }
+
+  .divBoksEndret {
+    position: relative;
+    top: -15px;
+    text-align: center;
+    color: #532323;
+    height: 19px;
+    width: 39px;
+    padding: 3px;
+    border: 1px solid #507e32;
+    background-color: #ecdb43;
+    float: right;
+    margin-right: 5px;
+    margin-bottom: px;
+  }
+
+  #okBtn {
+    width: 50px;
+    margin: 5px;
+    border: 1px solid #507e32;
+    background-color: #c55a11;
+    color: #ffffff;
+  }
+
+  #avbrytBtn {
+    width: 50px;
+    margin: 5px;
+    border: 1px solid #507e32;
+    background-color: #767171;
+    color: #ffffff;
+  }
+
+  p {
+    color: #ffffff;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+}
