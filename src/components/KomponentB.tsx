@@ -23,7 +23,7 @@ export type KomponentBProps = {
     cssElement2 = 'divBoksEndret';
   
     // Sørger for at verdien i tekstboksen alltid er kontrollert av komponentet 
-    const onChangeTekstboksA = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeTekstboksB = (e: React.ChangeEvent<HTMLInputElement>) => {
       setTekstboksB(e.currentTarget.value);
     };
   
@@ -49,7 +49,7 @@ export type KomponentBProps = {
           type="text"
           placeholder="Tekstboks"
           defaultValue={tekstboksB}
-          onChange={onChangeTekstboksA}
+          onChange={onChangeTekstboksB}
         />
         <div
           className={divBakgrunn}
